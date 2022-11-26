@@ -23,7 +23,7 @@
                     <v-card-text v-else class="blue pb-0">
                         <strong class="white--text">1 {{ item.CharCode }} = {{ item.Value.toFixed(3) }} {{ selectedValute }}</strong> 
                      </v-card-text>
-                </v-card>
+                </v-card> 
             </v-col>
 
 
