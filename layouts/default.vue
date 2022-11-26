@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <v-app-bar elevate-on-scroll scroll-target="#scrolling-techniques-7" color="blue" dense fixed app>
-      <v-toolbar-title>Курс валют</v-toolbar-title>
+      <v-toolbar-title> Курс валют</v-toolbar-title>
       <v-spacer />
       <v-dialog v-model="dialog" width="500">
         <template v-slot:activator="{ on, attrs }">
