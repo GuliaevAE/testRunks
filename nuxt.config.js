@@ -6,6 +6,8 @@ export default {
   ssr: true,
   generate:{
     fallback:true
+
+    
   }, 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
