@@ -2,13 +2,9 @@ import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  targert:"static",
-  ssr: true,
-  generate:{
-    fallback:true
-
-
-  }, 
+  // mode:"static",
+  ssr: false,
+  
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - pr',
