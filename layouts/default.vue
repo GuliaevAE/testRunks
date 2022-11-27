@@ -2,11 +2,12 @@
   <v-app dark>
     <v-app-bar elevate-on-scroll scroll-target="#scrolling-techniques-7" color="blue" dense fixed app>
       <v-toolbar-title>
-        <!-- <v-icon>mdi-cash</v-icon>  -->
-        
         <strong>{{ $t('header_title') }}</strong>
-       </v-toolbar-title>
+      </v-toolbar-title>
       <v-spacer />
+      <v-btn icon v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">
+        <v-icon>mdi-translate</v-icon>
+      </v-btn>
       <v-dialog v-model="dialog" width="500">
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
@@ -15,36 +16,21 @@
         </template>
         <v-card light>
           <v-card-title class="text-h5 blue white--text">
-            Помощь
+            {{$t("help")}}
           </v-card-title>
-
           <v-card-text>
-            На странице <v-icon>mdi-calculator</v-icon> находится поле для ввода функции изменения валюты. Для посчетов
-            необходимо ввести количество валюты, изначальную валюту, слово "in" и конечную валюту.
-            <p>
-              <strong>Правила:</strong>
-            <ul>
-              <li>Все элементы формы вводятся через пробел.</li>
-              <li>Все элементы формы вводятся в определенном порядке (число → валюта → in → валюта).</li>
-              <li>Для ввода валюты можно использовать её название или буквенный код (посмотреть возможные валюты можно
-                на странице <v-icon>mdi-apps</v-icon>). </li>
-                <li>При вводе валюты регистр не имеет значения.</li>
-            </ul>
-            </p>
-
+            {{$t("help_calculator")}}
           </v-card-text>
           <v-card-text>
-            На странице <v-icon>mdi-apps</v-icon> находятся поле с выбором оперделенной валюты и карточки валют с курсом
-            выбранной валюты.
-
+            {{$t("heip_allExchangeRates")}}
           </v-card-text>
         </v-card>
       </v-dialog>
-
-
-      
-      <v-btn icon class="ml-3" v-for="item in items" :key="item.title" :to="item.to" prefetch router exact>
-        <v-icon>{{ item.icon }}</v-icon>
+      <v-btn icon :to="localePath('/calculator')" prefetch router exact>
+        <v-icon>mdi-calculator</v-icon>
+      </v-btn>
+      <v-btn icon :to="localePath('/allExchangeRates')" prefetch router exact>
+        <v-icon>mdi-apps</v-icon>
       </v-btn>
 
     </v-app-bar>
@@ -62,25 +48,12 @@ export default {
   data() {
     return {
       dialog: false,
-      items: [
-        {
-          icon: 'mdi-calculator',
-          title: 'calculator',
-          to: '/calculator'
-        },
-        {
-          icon: 'mdi-apps',
-          title: 'allExchangeRates',
-          to: '/allExchangeRates'
-        },
-
-      ],
-
-
     }
   },
-
-
-
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+    }
+  }
 }
 </script>

@@ -1,10 +1,7 @@
 <template>
     <v-col>
-        <v-row justify="center" align="center">
-            <nuxt-link class="blue--text" v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">{{
-            locale.name
-            }}</nuxt-link>
-            <v-text-field hint="Число → валюта → in → валюта" light outlined :label= '$t("calculator__text_field")'
+        <v-row justify="center" align="center">      
+            <v-text-field :hint='$t("calculator__text_field_hint")' light outlined :label= '$t("calculator__text_field_label")'
                 placeholder="100 AMD in RUB" color="blue" hide-details="auto" class="blue--text" @input="inputAction">
             </v-text-field>
         </v-row>
@@ -17,7 +14,7 @@
                                 <img class="blue rounded pa-1" src="~/assets/images/hand.svg" alt="">
                                 <strong class="ml-2 blue--text">{{ from.CharCode }}</strong>
                             </v-card-title>
-                            <v-card-subtitle class="blue--text pb-0"><strong>{{ from.Name }}</strong></v-card-subtitle>
+                            <v-card-subtitle class="blue--text pb-0"><strong>{{ $t(from.CharCode) }}</strong></v-card-subtitle>
                             <v-card-text class="blue pb-0">
                                 <strong class="white--text">{{ count }} {{ from.CharCode }}</strong>
                             </v-card-text>
@@ -33,7 +30,7 @@
                                 <img class="red rounded pa-1" src="~/assets/images/hand.svg" alt="">
                                 <strong class="ml-2 red--text">{{ to.CharCode }}</strong>
                             </v-card-title>
-                            <v-card-subtitle class="red--text pb-0"><strong>{{ to.Name }}</strong></v-card-subtitle>
+                            <v-card-subtitle class="red--text pb-0"><strong>{{ $t(to.CharCode) }}</strong></v-card-subtitle>
                             <v-card-text class="red pb-0">
                                 <strong v-if="curs" class="white--text">{{ curs.toFixed(3) }} {{ to.CharCode }}</strong>
                             </v-card-text>
@@ -43,7 +40,6 @@
             </v-card>
         </v-row>
     </v-col>
-
 </template>
   
 <script>
@@ -56,40 +52,31 @@ export default {
             from: '',
             to: '',
             curs: '',
-
-           
         }
     },
-    computed: {
-        availableLocales() {
-            return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
-        }
-    },
+    
     methods: {
         inputAction(e) {
             let value = e.split(' in ')
             let count = Number(value[0].split(' ')[0])
             let from = value[0].split(' ')[1]
             let to = value[1]
-
-            let from1
-            let to1
-
+            let objFrom
+            let objTo
             Object.values(this.datas).forEach(x => {
                 if (typeof from === 'string' && (from === x.NumCode || from.toLowerCase() === x.CharCode.toLowerCase() || from.toLowerCase() === x.Name.toLowerCase())) {
-                    from1 = x
+                    objFrom = x
                 }
                 if (typeof to === 'string' && (to === x.NumCode || to.toLowerCase() === x.CharCode.toLowerCase() || to.toLowerCase() === x.Name.toLowerCase())) {
-                    to1 = x
+                    objTo = x
                 }
             })
-            if (count && from1 && to1) {
-                this.curs = from1.Value / from1.Nominal / to1.Value * to1.Nominal * count
+            if (count && objFrom && objTo) {
+                this.curs = objFrom.Value / objFrom.Nominal / objTo.Value * objTo.Nominal * count
             }
-
             this.count = count,
-                this.from = from1,
-                this.to = to1
+                this.from = objFrom,
+                this.to = objTo
 
         },
 

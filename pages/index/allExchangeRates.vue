@@ -1,12 +1,12 @@
 <template>
     <v-col>
         <v-row justify="center" align="center">
-            <v-select :items="Object.keys(this.datas)" class="mt-2" label="Выберите валюту" outlined color="blue" light
-                v-model="selectedValute"  ></v-select>
+            <v-select :items="Object.keys(this.datas)" class="mt-2" :label='$t("allExchangeRates__select_label")'
+                outlined color="blue" light v-model="selectedValute"></v-select>
         </v-row>
         <v-row justify="space-between">
-            <v-col v-if="item.CharCode !== selectedValute" cols="12" sm="6" md="4" lg="3"
-                v-for="(item, k) in updatedDatas" :key="item.CharCode">   
+            <v-col v-if="item.CharCode !== selectedValute" cols="12" sm="6" md="4" v-for="(item, k) in updatedDatas"
+                :key="item.CharCode">
                 <Card :item='item' :k="k" :selectedValute="selectedValute" />
             </v-col>
         </v-row>

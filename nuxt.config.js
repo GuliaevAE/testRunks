@@ -46,21 +46,27 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios','@nuxtjs/i18n'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/i18n'],
   axios: {
 
   },
   i18n: {
     // locales: ['en', 'fr', 'es'],
-    defaultLocale: 'en',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root',  // recommended
+    },
     locales: [
       {
         code: 'en',
-        name: 'English'
+        name: 'Eng',
+
       },
       {
         code: 'ru',
-        name: 'Español'
+        name: 'Рус',
+
       }
     ],
     vueI18n: {
@@ -68,13 +74,108 @@ export default {
       messages: {
         en: {
           header_title: 'Exchange Rates',
-          calculator__text_field:"Enter currency change function"
+          calculator__text_field_label: "Enter currency change function",
+          calculator__text_field_hint: "Count → currency → in → currency",
+          allExchangeRates__select_label: "Select currency",
+          AUD: "Australian dollar",
+          AZN: "Azerbaijani manat",
+          GBP: "British pound sterling",
+          AMD: "Armenian dram",
+          BYN: "Belarusian ruble",
+          BGN: "Bulgarian Lev",
+          BRL: "Brazilian Real",
+          HUF: "Hungarian forints",
+          HKD: "Hong Kong dollars",
+          DKK: "Danish kroner",
+          USD: "U.S. dollar ",
+          EUR: "Euro",
+          INR: "Indian rupees",
+          KZT: "Kazakh tenge",
+          CAD: "Canadian dollar",
+          KGS: "Kyrgyz som",
+          CNY: "Chinese yuan",
+          MDL: "Moldavian lei",
+          NOK: "Norwegian kroner",
+          PLN: "Polish zloty",
+          RON: "Romanian leu",
+          XDR: "SDR (Special Drawing Rights)",
+          SGD: "Singapore dollar",
+          TJS: "Tajik somoni",
+          TRY: "Turkish lira",
+          TMT: "New Turkmen manat",
+          UZS: "Uzbek soums",
+          UAH: "Ukrainian hryvnia",
+          CZK: "Czech crowns",
+          SEK: "Swedish kroner",
+          CHF: "Swiss frank ",
+          ZAR: "South African rand",
+          KRW: "Won Republic of Korea",
+          JPY: "Japanese yen",
+          RUB: "Russian ruble",
+          help:"Help",
+          help_calculator:`The 'calculator' page contains a field for entering the currency change function. For bills
+          you must enter the amount of currency, the original currency, the word "in" and the final currency.
+          Rules:
+          All form elements are entered with a space.
+          All form elements are entered in a certain order (number → currency → in → currency).
+          To enter a currency, you can use its name or letter code (you can see the possible currencies
+          on the 'allExchangeRates' page).
+          When entering a currency, case does not matter.`,
+          heip_allExchangeRates:"On the page 'allExchangeRates' there is a field with a choice of a certain currency and currency cards with the rate of the selected currency."
         },
         ru: {
           header_title: 'Курс валют',
-          calculator__text_field:"Введите функцию изменения валюты"
+          calculator__text_field_label: "Введите функцию изменения валюты",
+          calculator__text_field_hint: "Число → валюта → in → валюта",
+          allExchangeRates__select_label: "Выберите валюту",
+          AUD: "Австралийский долла",
+          AZN: "Азербайджанский мана",
+          GBP: "Фунт стерлингов Соединенного королевства",
+          AMD: "Армянских драмо",
+          BYN: "Белорусский рубл",
+          BGN: "Болгарский лев",
+          BRL: "Бразильский реал ",
+          HUF: "Венгерских форинтов ",
+          HKD: "Гонконгских долларов ",
+          DKK: "Датских крон ",
+          USD: "Доллар США ",
+          EUR: "Евро ",
+          INR: "Индийских рупий ",
+          KZT: "Казахстанских тенге ",
+          CAD: "Канадский доллар ",
+          KGS: "Киргизских сомов ",
+          CNY: "Китайских юаней ",
+          MDL: "Молдавских леев ",
+          NOK: "Норвежских крон ",
+          PLN: "Польский злотый ",
+          RON: "Румынский лей ",
+          XDR: "СДР (специальные права заимствования)",
+          SGD: "Сингапурский доллар ",
+          TJS: "Таджикских сомони ",
+          TRY: "Турецких лир ",
+          TMT: "Новый туркменский манат ",
+          UZS: "Узбекских сумов ",
+          UAH: "Украинских гривен ",
+          CZK: "Чешских крон ",
+          SEK: "Шведских крон ",
+          CHF: "Швейцарский франк ",
+          ZAR: "Южноафриканских рэндов ",
+          KRW: "Вон Республики Корея ",
+          JPY: "Японских иен ",
+          RUB:"Российский рубль",
+          help:"Помощь",
+          help_calculator:`
+          На странице calculator находится поле для ввода функции изменения валюты. Для посчетов
+          необходимо ввести количество валюты, изначальную валюту, слово "in" и конечную валюту.
+          Правила:
+          Все элементы формы вводятся через пробел.
+          Все элементы формы вводятся в определенном порядке (число → валюта → in → валюта).
+          Для ввода валюты можно использовать её название или буквенный код (посмотреть возможные валюты можно
+          на странице allExchangeRates).
+          При вводе валюты регистр не имеет значения.`,
+          heip_allExchangeRates:"На странице allExchangeRates находятся поле с выбором оперделенной валюты и карточки валют с курсом выбранной валюты."
         },
-        
+
       }
     }
   },
