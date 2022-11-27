@@ -1,5 +1,5 @@
 <template>
-    <v-card color="white" light min-width="250px" elevation="7" class="mt-2">
+    <v-card color="white" light elevation="7" class="mt-2">
         <v-card-title>
             <img v-if="k % 2 != 0" class="red rounded pa-1" src="~/assets/images/hand.svg" alt="">
             <img v-else class="blue rounded pa-1" src="~/assets/images/hand.svg" alt=""/>
@@ -28,6 +28,6 @@
 <script>
 export default{
     name:"Card",
-    props:["item", "k"]
+    props:["item", "k", "selectedValute"]
 }
 </script>

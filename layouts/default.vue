@@ -4,6 +4,7 @@
       <v-toolbar-title>
         <!-- <v-icon>mdi-cash</v-icon>  -->
         <strong>Курс валют</strong>
+        
        </v-toolbar-title>
       <v-spacer />
       <v-dialog v-model="dialog" width="500">
@@ -42,7 +43,7 @@
 
 
       
-      <v-btn icon class="ml-3" v-for="item in items" :key="i" :to="item.to" prefetch router exact>
+      <v-btn icon class="ml-3" v-for="item in items" :key="item.title" :to="item.to" prefetch router exact>
         <v-icon>{{ item.icon }}</v-icon>
       </v-btn>
 
