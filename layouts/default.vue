@@ -3,8 +3,8 @@
     <v-app-bar elevate-on-scroll scroll-target="#scrolling-techniques-7" color="blue" dense fixed app>
       <v-toolbar-title>
         <!-- <v-icon>mdi-cash</v-icon>  -->
-        <strong>Курс валют</strong>
         
+        <strong>{{ $t('header_title') }}</strong>
        </v-toolbar-title>
       <v-spacer />
       <v-dialog v-model="dialog" width="500">

@@ -46,9 +46,37 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios','@nuxtjs/i18n'],
   axios: {
 
+  },
+  i18n: {
+    // locales: ['en', 'fr', 'es'],
+    defaultLocale: 'en',
+    locales: [
+      {
+        code: 'en',
+        name: 'English'
+      },
+      {
+        code: 'ru',
+        name: 'Español'
+      }
+    ],
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        en: {
+          header_title: 'Exchange Rates',
+          calculator__text_field:"Enter currency change function"
+        },
+        ru: {
+          header_title: 'Курс валют',
+          calculator__text_field:"Введите функцию изменения валюты"
+        },
+        
+      }
+    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
