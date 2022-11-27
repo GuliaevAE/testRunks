@@ -3,8 +3,12 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   // mode:"static",
-  ssr: false,
-  
+  ssr: true,
+  target: 'static',
+  router: {
+    base: '/testRunks/'
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - pr',
@@ -22,7 +26,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  
+
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["~/assets/main.css"
@@ -44,7 +48,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['@nuxtjs/axios'],
   axios: {
-   
+
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
