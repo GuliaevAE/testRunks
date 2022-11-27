@@ -4,10 +4,10 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   // mode:"static",
   ssr: true,
-  target: 'static',
-  router: {
-    base: '/testRunks/'
-  },
+  // target: 'static',
+  // router: {
+  //   base: '/testRunks/'
+  // },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
