@@ -2,8 +2,11 @@
     <v-card color="white" light min-width="250px" elevation="7" class="mt-2">
         <v-card-title>
             <img v-if="k % 2 != 0" class="red rounded pa-1" src="~/assets/images/hand.svg" alt="">
-            <img v-else class="blue rounded pa-1" src="~/assets/images/hand.svg" alt=""></img>
-            <span class="ml-2">{{ item.CharCode }}</span>
+            <img v-else class="blue rounded pa-1" src="~/assets/images/hand.svg" alt=""/>
+            <strong v-if="k % 2 != 0" class="ml-2 red--text">{{ item.CharCode }}</strong>
+            <strong v-else class="ml-2 blue--text">{{ item.CharCode }}</strong>
+            
+            
         </v-card-title>
         <v-card-subtitle light class="pb-0">
             <strong v-if="k % 2 != 0" class="red--text ">{{ item.Name }}</strong>

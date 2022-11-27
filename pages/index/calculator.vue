@@ -12,7 +12,7 @@
                         <v-card v-if="from" height="100%" color="white" elevation="7" light>
                             <v-card-title>
                                     <img class="blue rounded pa-1" src="~/assets/images/hand.svg" alt="">
-                                    <span  class="ml-2">{{ from.CharCode }}</span>
+                                    <strong  class="ml-2 blue--text">{{ from.CharCode }}</strong>
                             </v-card-title>
                             <v-card-subtitle class="blue--text pb-0"><strong>{{ from.Name }}</strong></v-card-subtitle>
                             <v-card-text class="blue pb-0">
@@ -27,7 +27,7 @@
                         <v-card v-if="to" height="100%" color="white" elevation="7" light>
                             <v-card-title>
                                     <img class="red rounded pa-1" src="~/assets/images/hand.svg" alt="">
-                                    <span class="ml-2">{{ to.CharCode }}</span>
+                                    <strong class="ml-2 red--text">{{ to.CharCode }}</strong>
                             </v-card-title>
                             <v-card-subtitle class="red--text pb-0"><strong>{{ to.Name }}</strong></v-card-subtitle>
                             <v-card-text class="red pb-0">
@@ -87,9 +87,4 @@ export default {
 }
 </script>
 
-<style module>
-.asdas {
-    color: rgb(234, 237, 240)
-}
-</style>
   
